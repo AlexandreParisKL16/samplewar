@@ -3,3 +3,7 @@
     - name: install apache
       package:
         name: tomcat9
+    - name: Copy file
+      ansible.builtin.copy:
+        src: sample.war
+        dest: /var/lib/tomcat9/webapps/
