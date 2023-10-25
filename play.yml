@@ -1,8 +1,13 @@
 - hosts: all
   tasks:
-    - name: install apache
+    - name: esnure tomcat is present
       package:
         name: tomcat9
+    - name: ensure service is started
+      service:
+        name: tomcat9
+        state: started
+        enabled: true
     - name: Copy file
       ansible.builtin.copy:
         src: sample.war
