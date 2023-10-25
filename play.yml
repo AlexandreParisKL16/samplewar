@@ -1,1 +1,6 @@
-
+- hosts: all
+  tasks:
+    - name: install apache
+      package:
+        name: tomcat9
+        state: present
