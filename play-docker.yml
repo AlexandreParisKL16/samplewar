@@ -1,1 +1,4 @@
-
+  - name: ensure docker is installed
+    docker_container:
+      name: mycontainer
+      state: present
