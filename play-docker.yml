@@ -2,3 +2,6 @@
     docker_container:
       name: ghost
       state: present
+
+  - name: ensure container is created
+    
