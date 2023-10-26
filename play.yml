@@ -1,14 +1,27 @@
 - hosts: all
   tasks:
-    - name: esnure tomcat is present
+    - name: esnure python3-flask is installed
       package:
-        name: tomcat9
-    - name: ensure service is started
-      service:
-        name: tomcat9
-        state: started
-        enabled: true
-    - name: Copy file
+        name: python3-flask
+    - name: ensure /home/vagrant/my-app is a dir
+      ansible.builtin.file:
+        path: /home/vagrant/my-app
+        state: directory
+    - name: ensure app.py file is in /home/vagrant/m-app/
       ansible.builtin.copy:
-        src: sample.war
-        dest: /var/lib/tomcat9/webapps/
+        src: app.py
+        dest: /home/vagrant/m-app/
+
+    - name: ensure my-app.service file is in /etc/systemd/system/
+      ansible.builtin.copy:
+        src: my-app.service
+        dest: /etc/systemd/system/
+
+    - name: ensure to reload systemd
+      ansible.builtin.systemd:
+        state: restarted
+
+    - name: ensure my-app is started
+      ansible.builtin.service:
+        name: my-app
+        state: started
