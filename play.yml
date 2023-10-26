@@ -10,7 +10,7 @@
     - name: ensure app.py file is in /home/vagrant/my-app/
       ansible.builtin.copy:
         src: app.py
-        dest: /home/vagrant/m-app/
+        dest: /home/vagrant/my-app/
 
     - name: ensure my-app.service file is in /etc/systemd/system/
       ansible.builtin.copy:
