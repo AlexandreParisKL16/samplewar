@@ -7,7 +7,7 @@
       ansible.builtin.file:
         path: /home/vagrant/my-app
         state: directory
-    - name: ensure app.py file is in /home/vagrant/m-app/
+    - name: ensure app.py file is in /home/vagrant/my-app/
       ansible.builtin.copy:
         src: app.py
         dest: /home/vagrant/m-app/
